@@ -9,21 +9,25 @@
   </head>
   <body>
     <!-- used to indicate when code block is copied on double click -->
-    <div id="text-copied">This text follows the cursor!</div>
+    <div id="text-copied">copied!</div>
     <header>
       <h1>CSS Code Snippet Cheat Sheet</h1>
     </header>
     <h3 class="page-description">
       The floppy disks below contain CSS code block information. Hover over any
-      disk of interest to access its data. then click on the code to copy the
+      disk of interest to access its data. then
+      <span id="double-click">double click</span> on the code block to copy the
       data from the disk.
     </h3>
     <main>
       <section class="card-container">
         <section class="card">
-          <h3 class="card-title">Card Title</h3>
+          <h3 class="card-title">:Root Selector</h3>
           <section class="card-content">
-            <h4 class="code-description">code description</h4>
+            <h4 class="code-description">
+              A pseudo-class used to define custom CSS properties. The example
+              below defines two color properties as variables.
+            </h4>
             <pre class="code-block">
 :root {
   --blue: #1e90ff;
@@ -33,61 +37,95 @@
           </section>
         </section>
         <section class="card">
-          <h3 class="card-title">Card Title</h3>
+          <h3 class="card-title">Var() Function</h3>
           <section class="card-content">
-            <h4 class="code-description">code description</h4>
+            <h4 class="code-description">
+              A CSS function used to retrieve the value of a custom CSS
+              property. The example below retrieves two color property
+              variables.
+            </h4>
             <pre class="code-block">
-:root {
-  --blue: #1e90ff;
-  --white: #ffffff;
+body {
+  background-color: var(--white);
+  color: var(--blue);
 }</pre
             >
           </section>
         </section>
         <section class="card">
-          <h3 class="card-title">Card Title</h3>
+          <h3 class="card-title">Clip-path Property</h3>
           <section class="card-content">
-            <h4 class="code-description">code description</h4>
+            <h4 class="code-description">
+              A property used to restrict visbility of specified regions of an
+              element. Useful for creating shapes in CSS.
+            </h4>
             <pre class="code-block">
-:root {
-  --blue: #1e90ff;
-  --white: #ffffff;
+div {
+  width: 200px;
+  height: 200px;
+  clip-path: polygon(85% 0, 100% 15%, 100% 100%, 
+  0 100%, 0 0);
+  border: 5px solid var(--light-gray);
 }</pre
             >
           </section>
         </section>
         <section class="card">
-          <h3 class="card-title">Card Title</h3>
+          <h3 class="card-title">Transition: Opacity</h3>
           <section class="card-content">
-            <h4 class="code-description">code description</h4>
+            <h4 class="code-description">
+              A transition property used to animate smooth fade-in and fade-out
+              effects.
+            </h4>
             <pre class="code-block">
-:root {
-  --blue: #1e90ff;
-  --white: #ffffff;
+.code-block {
+  border: 5px solid var(--light-gray);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  user-select: all;
+}
+
+.code-block:hover {
+  opacity: 1;
 }</pre
             >
           </section>
         </section>
         <section class="card">
-          <h3 class="card-title">Card Title</h3>
+          <h3 class="card-title">@Media Screen</h3>
           <section class="card-content">
-            <h4 class="code-description">code description</h4>
+            <h4 class="code-description">
+              A CSS rule used to apply styles based on screen features. The
+              example below changes element width based on screen width.
+            </h4>
             <pre class="code-block">
-:root {
-  --blue: #1e90ff;
-  --white: #ffffff;
+@media screen and (max-width: 992px) {
+  .card {
+    width: 46%;
+  }
 }</pre
             >
           </section>
         </section>
         <section class="card">
-          <h3 class="card-title">Card Title</h3>
+          <h3 class="card-title">Display: Flex</h3>
           <section class="card-content">
-            <h4 class="code-description">code description</h4>
+            <h4 class="code-description">
+              Creates a flex container, allowing alignment, spacing and layout
+              of it's direct child elements.
+            </h4>
             <pre class="code-block">
-:root {
-  --blue: #1e90ff;
-  --white: #ffffff;
+/* Horizontal Layout with Space Between Items */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item {
+  background-color: lightblue;
+  padding: 10px;
+  margin: 5px;
 }</pre
             >
           </section>
@@ -95,7 +133,7 @@
       </section>
     </main>
     <footer>
-      <h2>Author Info</h2>
+      <h2>Created by Stuart Gross</h2>
     </footer>
 
     <script>
