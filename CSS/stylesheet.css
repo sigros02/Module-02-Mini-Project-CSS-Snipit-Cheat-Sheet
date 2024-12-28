@@ -9,44 +9,61 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: lucida console;
   background-color: ivory;
-  width: 100vw;
-  height: 100vh;
+}
+
+#text-copied {
+  position: absolute;
+  background-color: lightblue;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: none; /* Initially hidden */
+  pointer-events: none; /* Prevent interference with clicks */
+  font-size: 14px;
+  z-index: 100;
 }
 
 header {
   background-color: var(--blue);
-  height: 8vh;
-  line-height: 4vh;
-  padding-top: 2vh;
   text-align: center;
-  font-size: 2em;
+  font-size: 2.5em;
+  padding-top: 10px;
+  padding-bottom: 10px;
   color: var(--dark-gray);
 }
 
 main {
+  /* needed to push footer to bottom of page */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  margin: 1vh 2vw 1vh 2vw;
+  z-index: 1;
 }
 
 .page-description {
-  margin: 2vh 0vh 2vh 0vh;
+  margin: 2% 2% 0 2%;
   color: var(--medium-gray);
+  font-size: 1.25em;
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .card {
-  width: 29vw;
-  margin: 1vw;
-  border: solid var(--light-gray);
-  background-color: var(--light-blue);
+  width: 29%;
+  height: 40vh;
+  margin: 1%;
+  clip-path: polygon(85% 0, 100% 15%, 100% 100%, 0 100%, 0 0);
+  border: 5px solid var(--light-gray);
+  background: #f4feff;
+  background: linear-gradient(135deg, #e6f7ff, #3786d5);
   color: var(--coral);
 }
 
@@ -54,28 +71,52 @@ main {
   color: var(--medium-gray);
   text-align: center;
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 1.4em;
   padding: 3% 0 0 0;
 }
 
 .code-description {
   font-weight: 300;
   padding: 2%;
+  font-size: 1.15em;
 }
 
 .code-block {
-  padding: 0 0 0 2%;
+  padding: 2%;
   font-family: monospace;
+  font-size: 1em;
+  border: 5px solid var(--light-gray);
+  margin: 2%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  user-select: all;
+}
+
+.code-block:hover {
+  opacity: 1;
+}
+
+.code-block::selection {
+  background-color: var(--blue);
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
   background-color: var(--blue);
-  width: 100%;
-  height: 6vh;
-  font-size: 3vh;
-  padding-top: 1.5vh;
+  height: 6%;
+  font-size: 1.75em;
+  padding: 10px;
   text-align: center;
   color: var(--dark-gray);
+}
+
+@media screen and (max-width: 992px) {
+  .card {
+    width: 46%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
 }

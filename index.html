@@ -8,18 +8,17 @@
     <link rel="stylesheet" href="./CSS/stylesheet.css" />
   </head>
   <body>
+    <!-- used to indicate when code block is copied on double click -->
+    <div id="text-copied">This text follows the cursor!</div>
     <header>
-      <h1>Page Title</h1>
+      <h1>CSS Code Snippet Cheat Sheet</h1>
     </header>
+    <h3 class="page-description">
+      The floppy disks below contain CSS code block information. Hover over any
+      disk of interest to access its data. then click on the code to copy the
+      data from the disk.
+    </h3>
     <main>
-      <h3 class="page-description">
-        Lorem ipsum odor amet, consectetuer adipiscing elit. Convallis donec
-        blandit interdum in aenean justo magna bibendum. Maecenas turpis nisi
-        eget blandit quam sociosqu etiam luctus. Nisl lorem laoreet suscipit
-        praesent netus potenti metus vehicula. Ante ante dignissim sagittis
-        augue malesuada id elementum mattis. Malesuada convallis litora; magna
-        nascetur mollis metus dictumst ridiculus erat.
-      </h3>
       <section class="card-container">
         <section class="card">
           <h3 class="card-title">Card Title</h3>
@@ -29,8 +28,8 @@
 :root {
   --blue: #1e90ff;
   --white: #ffffff;
-}
-            </pre>
+}</pre
+            >
           </section>
         </section>
         <section class="card">
@@ -41,8 +40,8 @@
 :root {
   --blue: #1e90ff;
   --white: #ffffff;
-}
-            </pre>
+}</pre
+            >
           </section>
         </section>
         <section class="card">
@@ -53,8 +52,8 @@
 :root {
   --blue: #1e90ff;
   --white: #ffffff;
-}
-            </pre>
+}</pre
+            >
           </section>
         </section>
         <section class="card">
@@ -65,8 +64,8 @@
 :root {
   --blue: #1e90ff;
   --white: #ffffff;
-}
-            </pre>
+}</pre
+            >
           </section>
         </section>
         <section class="card">
@@ -77,8 +76,8 @@
 :root {
   --blue: #1e90ff;
   --white: #ffffff;
-}
-            </pre>
+}</pre
+            >
           </section>
         </section>
         <section class="card">
@@ -89,8 +88,8 @@
 :root {
   --blue: #1e90ff;
   --white: #ffffff;
-}
-            </pre>
+}</pre
+            >
           </section>
         </section>
       </section>
@@ -98,5 +97,28 @@
     <footer>
       <h2>Author Info</h2>
     </footer>
+
+    <script>
+      const textToCopyArray = document.querySelectorAll(".code-block");
+      const textCopied = document.getElementById("text-copied");
+      console.log(textToCopyArray);
+      // console.log(textCopied);
+      textToCopyArray.forEach((textToCopy) => {
+        textToCopy.addEventListener("dblclick", (event) => {
+          console.log("test2");
+          try {
+            document.execCommand("copy");
+            textCopied.style.display = "block";
+            textCopied.style.left = `${event.pageX + 10}px`; // Position 10px to the right of the cursor
+            textCopied.style.top = `${event.pageY + 10}px`; // Position 10px below the cursor
+            setTimeout(() => {
+              textCopied.style.display = "none"; // Hide the element
+            }, 2000); // 2000 milliseconds = 2 seconds
+          } catch (err) {
+            console.log("Oops, unable to copy text");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
